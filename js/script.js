@@ -7,38 +7,18 @@ $(document).ready(function() {
       groceries.push($("input#" + item).val());
     });
 
-    groceries.map(function(grocery) {
-      $("#output").append("<li>" + grocery + "</li>");
+    var grocCaps = groceries.map(function(grocCap) {
+      return grocCap.toUpperCase();
     });
+
+    var grocFinals = grocCaps.sort();
+
+    grocFinals.map(function(grocFinal) {
+      $("#output").append("<li>" + grocFinal + "</li>");
+    });
+
+    $("form#blanks").hide();
 
     event.preventDefault();
   });
 });
-
-
-
-
-
-
-
-// var grocList = [];
-//
-// $(document).ready(function() {
-//   $("form#blanks").submit(function(event) {
-//     var items = [($("#item1").val()), "item2", "item3", "item4", "item5"];
-//     items.forEach(function(item) {
-//       grocList.push($("#item" + item).val());
-//     })
-//
-//     var capItems = grocList.map(function(groc) {
-//       return groc.toUpperCase();
-//     });
-//
-//     capItems.forEach(function(capItem) {
-//       $("#output").text("<li>" + capItem + "</li>")
-//     });
-//
-//     $("#output").show();
-//     event.preventDefault();
-//   });
-// });
